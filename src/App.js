@@ -22,12 +22,10 @@ function App() {
       movieName: movieName,
       movieReview: review,
     }).then((res) => {
-      console.log(res);
-      // setMovieList([
-      //   ...movieReviewList,
-      //   { movieName: movieName, movieReview: review },
-
-      // ]);
+      setMovieList([
+        ...movieReviewList,
+        { movieName: movieName, movieReview: review },
+      ]);
     });
   };
 
