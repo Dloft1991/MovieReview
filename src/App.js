@@ -62,14 +62,14 @@ function App() {
 
         <button onClick={submitReview}>Submit</button>
 
-        {movieReviewList.map((val) => {
+        {movieReviewList.map((movieReviewList) => {
           return (
             <div className="card">
-              <h1> {val.movieName}</h1>
-              <p> {val.movieReview}</p>
+              <h1> {movieReviewList.movieName}</h1>
+              <p> {movieReviewList.movieReview}</p>
               <button
                 onClick={() => {
-                  deleteReview(val.movieName);
+                  deleteReview(movieReviewList.movieName);
                 }}
               >
                 Delete
@@ -84,7 +84,7 @@ function App() {
               />
               <button
                 onClick={() => {
-                  updateReview(val.movieName);
+                  updateReview(movieReviewList.movieName);
                 }}
               >
                 Update
