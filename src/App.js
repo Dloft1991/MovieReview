@@ -21,12 +21,13 @@ function App() {
     Axios.post("https://mysql-deploy-movieapp.herokuapp.com/api/insert", {
       movieName: movieName,
       movieReview: review,
-    }).then(() => {
-      setMovieList([
-        ...movieReviewList,
-        { movieName: movieName, movieReview: review },
-        console.log(movieReviewList),
-      ]);
+    }).then((res) => {
+      console.log(res);
+      // setMovieList([
+      //   ...movieReviewList,
+      //   { movieName: movieName, movieReview: review },
+
+      // ]);
     });
   };
 
