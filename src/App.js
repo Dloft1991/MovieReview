@@ -5,7 +5,7 @@ import Axios from "axios";
 function App() {
   const [movieName, setMovieName] = useState("");
   const [review, setMovieReview] = useState("");
-  const [movieReviewList, setMovieList] = useState([]);
+  const [movieReviewList, setMovieList] = useState([","]);
   const [newReview, setNewReview] = useState("");
 
   useEffect(() => {
@@ -62,14 +62,14 @@ function App() {
 
         <button onClick={submitReview}>Submit</button>
 
-        {movieReviewList.map((movieReviewList) => {
+        {movieReviewList.map((val) => {
           return (
             <div className="card">
-              <h1> {movieReviewList.movieName}</h1>
-              <p> {movieReviewList.movieReview}</p>
+              <h1> {val.movieName}</h1>
+              <p> {val.movieReview}</p>
               <button
                 onClick={() => {
-                  deleteReview(movieReviewList.movieName);
+                  deleteReview(val.movieName);
                 }}
               >
                 Delete
@@ -84,7 +84,7 @@ function App() {
               />
               <button
                 onClick={() => {
-                  updateReview(movieReviewList.movieName);
+                  updateReview(val.movieName);
                 }}
               >
                 Update
