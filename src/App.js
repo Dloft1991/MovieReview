@@ -61,10 +61,10 @@ function App() {
 
         <button onClick={submitReview}>Submit</button>
 
-        {movieReviewList.map((movieReviewList) => {
+        {movieReviewList.map((val) => {
           return (
             <div className="card">
-              <h1> {movieReviewList.movieName}</h1>
+              <h1> {val.movieName}</h1>
               <p> {val.movieReview}</p>
               <button
                 onClick={() => {
