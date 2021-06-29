@@ -14,7 +14,7 @@ function App() {
         setMovieList(response.data);
       }
     );
-  });
+  }, []);
 
   const submitReview = () => {
     console.log("CLICKED");
@@ -61,7 +61,15 @@ function App() {
 
         <button onClick={submitReview}>Submit</button>
 
-        {setMovieList.map((val) => {
+        {newReview.map((val, key) => {
+          return (
+            <div className="post">
+              <h1>{val.movieName}</h1>
+              <p>{val.movieReview}</p>
+            </div>
+          );
+        })}
+        {/* {movieReviewList.map((val) => {
           return (
             <div className="card">
               <h1> {val.movieName}</h1>
@@ -90,7 +98,7 @@ function App() {
               </button>
             </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );
