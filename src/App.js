@@ -22,8 +22,11 @@ function App() {
     Axios.post("https://mysql-deploy-movieapp.herokuapp.com/api/insert", {
       movieName: movieName,
       movieReview: review,
-    }).then(() => {
-      [...movieReviewList, { movieName: movieName, movieReview: review }];
+    }).then((res) => {
+      setMovieList([
+        ...movieReviewList,
+        { movieName: movieName, movieReview: review },
+      ]);
     });
   };
 
@@ -58,7 +61,7 @@ function App() {
 
         <button onClick={submitReview}>Submit</button>
 
-        {movieReviewList((val) => {
+        {movieReviewList.map((val) => {
           return (
             <div className="card">
               <h1> {val.movieName}</h1>
