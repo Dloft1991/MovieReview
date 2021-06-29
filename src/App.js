@@ -61,7 +61,7 @@ function App() {
         {movieReviewList((val) => {
           return (
             <div className="card">
-              <h1> {response.data.movieName}</h1>
+              <h1> {val.movieName}</h1>
               <p> {val.movieReview}</p>
               <button
                 onClick={() => {
