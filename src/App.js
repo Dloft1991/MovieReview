@@ -63,14 +63,14 @@ function App() {
 
         <button onClick={submitReview}>Submit</button>
 
-        {movieReviewList(() => {
+        {movieReviewList((val) => {
           return (
             <div className="card">
-              <h1> {movieReviewList.movieName}</h1>
-              <p> {movieReviewList.movieReview}</p>
+              <h1> {response.data.movieName}</h1>
+              <p> {val.movieReview}</p>
               <button
                 onClick={() => {
-                  deleteReview(movieReviewList.movieName);
+                  deleteReview(val.movieName);
                 }}
               >
                 Delete
