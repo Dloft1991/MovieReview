@@ -59,37 +59,40 @@ function App() {
 
         <button onClick={submitReview}>Submit</button>
 
-        {movieReviewList.map((val) => {
-          return (
-            <div className="card">
-              <h2>name</h2>
-              <h1> {val.movieName}</h1>
-              <p> {val.movieReview}</p>
-              <button
-                onClick={() => {
-                  deleteReview(val.movieName);
-                }}
-              >
-                Delete
-              </button>
+        {movieReviewList(
+          // .map
+          (val) => {
+            return (
+              <div className="card">
+                <h2>name</h2>
+                <h1> {val.movieName}</h1>
+                <p> {val.movieReview}</p>
+                <button
+                  onClick={() => {
+                    deleteReview(val.movieName);
+                  }}
+                >
+                  Delete
+                </button>
 
-              <input
-                type="text"
-                id="updateInput"
-                onChange={(e) => {
-                  setNewReview(e.target.value);
-                }}
-              />
-              <button
-                onClick={() => {
-                  updateReview(val.movieName);
-                }}
-              >
-                Update
-              </button>
-            </div>
-          );
-        })}
+                <input
+                  type="text"
+                  id="updateInput"
+                  onChange={(e) => {
+                    setNewReview(e.target.value);
+                  }}
+                />
+                <button
+                  onClick={() => {
+                    updateReview(val.movieName);
+                  }}
+                >
+                  Update
+                </button>
+              </div>
+            );
+          }
+        )}
       </div>
     </div>
   );
