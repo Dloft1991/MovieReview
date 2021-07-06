@@ -9,7 +9,7 @@ function App() {
   const [newReview, setNewReview] = useState("");
 
   useEffect(() => {
-    Axios.get("https://mysql-deploy-movieapp.herokuapp.com/api/get").then(
+    Axios.get("https://movie-app-deploy.herokuapp.com/api/get").then(
       (response) => {
         setMovieList(response.data);
       }
@@ -19,7 +19,7 @@ function App() {
   const submitReview = () => {
     console.log("CLICKED");
 
-    Axios.post("https://mysql-deploy-movieapp.herokuapp.com/api/insert", {
+    Axios.post("https://movie-app-deploy.herokuapp.com/api/insert", {
       movieName: movieName,
       movieReview: review,
     }).then((res) => {
@@ -31,13 +31,11 @@ function App() {
   };
 
   const deleteReview = (movie) => {
-    Axios.delete(
-      `https://mysql-deploy-movieapp.herokuapp.com/api/delete/${movie}`
-    );
+    Axios.delete(`https://movie-app-deploy.herokuapp.com/api/delete/${movie}`);
   };
 
   const updateReview = (movie) => {
-    Axios.put("https://mysql-deploy-movieapp.herokuapp.com/api/update", {
+    Axios.put("https://movie-app-deploy.herokuapp.com/api/update", {
       movieName: movie,
       movieReview: newReview,
     });
@@ -61,39 +59,10 @@ function App() {
 
         <button onClick={submitReview}>Submit</button>
 
-        {newReview.map((val, key) => {
-          return (
-            <div className="post">
-              <h1>{val.movieName}</h1>
-              <p>{val.movieReview}</p>
-              <button
-                onClick={() => {
-                  deleteReview(val.movieName);
-                }}
-              >
-                Delete
-              </button>
-
-              <input
-                type="text"
-                id="updateInput"
-                onChange={(e) => {
-                  setNewReview(e.target.value);
-                }}
-              />
-              <button
-                onClick={() => {
-                  updateReview(val.movieName);
-                }}
-              >
-                Update
-              </button>
-            </div>
-          );
-        })}
-        {/* {movieReviewList.map((val) => {
+        {movieReviewList.map((val) => {
           return (
             <div className="card">
+              <h2>name</h2>
               <h1> {val.movieName}</h1>
               <p> {val.movieReview}</p>
               <button
@@ -120,7 +89,7 @@ function App() {
               </button>
             </div>
           );
-        })} */}
+        })}
       </div>
     </div>
   );
