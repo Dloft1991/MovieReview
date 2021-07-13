@@ -57,12 +57,12 @@ function App() {
 
         <button onClick={submitReview}>Submit</button>
 
-        {/* {movieReviewList.map((val) => {
+        {Object.keys(movieReviewList).map((keyName, i) => {
           return (
             <div className="card">
               <h2>name</h2>
-              <h1> {val.movieName}</h1>
-              <p> {val.movieReview}</p>
+              <h1> {movieReviewList[keyName].movieName}</h1>
+              <p> {movieReviewList[keyName].movieReview}</p>
               <button
                 onClick={() => {
                   deleteReview(val.movieName);
@@ -87,7 +87,7 @@ function App() {
               </button>
             </div>
           );
-        })} */}
+        })}
       </div>
     </div>
   );
