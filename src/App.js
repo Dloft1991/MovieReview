@@ -57,7 +57,7 @@ function App() {
 
         <button onClick={submitReview}>Submit</button>
 
-        {movieReviewList.map((val) => {
+        {/* {movieReviewList.map((val) => {
           return (
             <div className="card">
               <h2>name</h2>
@@ -87,7 +87,7 @@ function App() {
               </button>
             </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );
