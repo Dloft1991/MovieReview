@@ -65,7 +65,7 @@ function App() {
               <p> {movieReviewList[keyName].movieReview}</p>
               <button
                 onClick={() => {
-                  deleteReview(val.movieName);
+                  deleteReview(movieReviewList[keyName].movieName);
                 }}
               >
                 Delete
@@ -80,7 +80,7 @@ function App() {
               />
               <button
                 onClick={() => {
-                  updateReview(val.movieName);
+                  updateReview(movieReviewList[keyName].movieName);
                 }}
               >
                 Update
