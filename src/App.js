@@ -9,17 +9,15 @@ function App() {
   const [newReview, setNewReview] = useState("");
 
   useEffect(() => {
-    Axios.get("https://movie-app-deploy.herokuapp.com/api/get").then(
-      (response) => {
-        setMovieList(response.data);
-      }
-    );
+    Axios.get("https://derek-movies.herokuapp.com/api/get").then((response) => {
+      setMovieList(response.data);
+    });
   }, []);
 
   const submitReview = () => {
     console.log("CLICKED");
 
-    Axios.post("https://movie-app-deploy.herokuapp.com/api/insert", {
+    Axios.post("https://derek-movies.herokuapp.com/api/insert", {
       movieName: movieName,
       movieReview: review,
     }).then((res) => {
@@ -31,11 +29,11 @@ function App() {
   };
 
   const deleteReview = (movie) => {
-    Axios.delete(`https://movie-app-deploy.herokuapp.com/api/delete/${movie}`);
+    Axios.delete(`https://derek-movies.herokuapp.com/api/delete/${movie}`);
   };
 
   const updateReview = (movie) => {
-    Axios.put("https://movie-app-deploy.herokuapp.com/api/update", {
+    Axios.put("https://derek-movies.herokuapp.com/api/update", {
       movieName: movie,
       movieReview: newReview,
     });
